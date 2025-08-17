@@ -4,7 +4,7 @@ import axios from 'axios';
 import LoadingSpinner from '../../components/shared/LoadingSpinner';
 import { Toaster, toast } from 'react-hot-toast';
 
-const API_URL = 'http://127.0.0.1:3001/api';
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ExamInstructions() {
     const { id } = useParams();

@@ -3,11 +3,10 @@ import axios from 'axios';
 import LoadingSpinner from '../components/shared/LoadingSpinner';
 import { Toaster, toast } from 'react-hot-toast';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:3001/api';
+const API_URL = process.env.REACT_APP_API_URL;
 const inputClasses = "w-full px-3 py-2.5 border border-gray-300 bg-white text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500";
 
 function Profile() {
-    // ... (state and useEffect code remains the same)
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [passwordData, setPasswordData] = useState({
