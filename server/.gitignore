@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variable files (secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Debugging
+.vscode/
+*.swp
+
+# Optional npm cache directory
+.npm/
+
+# Build outputs
+dist/
+build/
+
+# Coverage results
+coverage/
+
+# Sensitive config (if any)
+config/*.secret.js
+config/*.env.js
