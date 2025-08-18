@@ -28,8 +28,4 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: 'Something went wrong!' });
 });
 
-// app.listen(3001, () => {
-//     console.log("\n\"Server is running on http://127.0.0.1:3001/\"");
-// });
-
 module.exports = app;
