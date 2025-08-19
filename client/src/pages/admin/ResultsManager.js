@@ -58,7 +58,7 @@ function ResultsManager() {
             );
             await Promise.all(requests);
             fetchResults();
-            toast.success(`Results for ${exam.title} have been ${action}ed`);
+            toast.success(`Results for ${exam.examTitle} have been ${action}ed`);
         } catch (err) {
             toast.error(`Failed to ${action} all results.`);
             setLoading(false);
