@@ -26,7 +26,7 @@ router.post('/', auth(['student']), async (req, res) => {
 
         const attemptCount = await Submission.countDocuments({
             examId,
-            studentId: req.user.id // CORRECTED
+            studentId: req.user.id
         });
         
         if (attemptCount >= exam.maxAttempts) {
@@ -52,7 +52,7 @@ router.post('/', auth(['student']), async (req, res) => {
         const totalMarks = exam.questions.reduce((sum, q) => sum + (q.marks || 1), 0);
 
         const submission = new Submission({
-            studentId: req.user.id, // CORRECTED
+            studentId: req.user.id,
             examId,
             answers: detailedAnswers,
             score,
@@ -67,7 +67,7 @@ router.post('/', auth(['student']), async (req, res) => {
         const grade = calculateGrade(percentage);
 
         const result = new Result({
-            studentId: req.user.id, // CORRECTED
+            studentId: req.user.id,
             examId,
             submissionId: submission._id,
             score,
@@ -104,7 +104,7 @@ router.get('/:id', auth(), async (req, res) => {
             return res.status(404).json({ message: 'Submission not found' });
         }
 
-        if (req.user.role !== 'admin' && submission.studentId._id.toString() !== req.user.id) { // CORRECTED
+        if (req.user.role !== 'admin' && submission.studentId._id.toString() !== req.user.id) {
             return res.status(403).json({ message: 'Unauthorized' });
         }
 

@@ -87,7 +87,7 @@ router.patch('/:id/publish', auth(['admin']), async (req, res) => {
     try {
         const exam = await Exam.findByIdAndUpdate(
             req.params.id,
-            { isPublished: true, publishedAt: new Date() }, // Also set publishedAt date
+            { isPublished: true, publishedAt: new Date() },
             { new: true }
         );
         
