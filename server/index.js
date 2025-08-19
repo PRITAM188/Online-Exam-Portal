@@ -14,10 +14,13 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: ["https://pritam-exam-portal.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: ["https://pritam-exam-portal.vercel.app"], // frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], // include PATCH here
+    allowedHeaders: ["Content-Type", "Authorization"], // include headers if needed
     credentials: true
 }));
+
+app.options("*", cors());
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
