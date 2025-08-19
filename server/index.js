@@ -11,21 +11,13 @@ connectDB();
 
 const app = express();
 
-const corsOptions = {
-    origin: 'https://pritam-exam-portal.vercel.app',
-    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};
-
-app.use(cors(corsOptions));
-
 // Middleware
-// app.use(express.json());
-// app.use(cors({
-//     origin: ["https://pritam-exam-portal.vercel.app"],
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true
-// }));
+app.use(express.json());
+app.use(cors({
+    origin: ["https://pritam-exam-portal.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
