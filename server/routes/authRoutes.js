@@ -1,5 +1,4 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const router = express.Router();
 const User = require('../models/User');
 const auth = require('../middleware/auth');
@@ -14,7 +13,6 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({ error: "Email and password are required" });
     }
 
-    // CORRECTED: Standardized password length to match validation.js
     if (password.length < 8) {
         return res.status(400).json({ error: "Password must be at least 8 characters" });
     }
@@ -51,7 +49,6 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({ error: "Invalid email!" });
     }
 
-    // CORRECTED: Validates the password instead of the email
     if (!validatePassword(req.body.password)) {
         return res.status(400).json({ error: "Invalid password!" });
     }

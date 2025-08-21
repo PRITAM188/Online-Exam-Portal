@@ -47,30 +47,23 @@ function Profile() {
         }
 
         try {
-            // --- STEP 1: Send data to the backend ---
             const response = await axios.patch(`${API_URL}/users/me/change-password`, passwordData);
 
-            // --- STEP 2 (SUCCESS): If backend responds with success, this code runs ---
-            // It shows the success message from the server.
             toast.success(response.data.message || 'Password updated successfully!');
             
             setPasswordData({ currentPassword: '', newPassword: '' });
 
         } catch (error) {
-            // --- STEP 2 (FAILURE): If backend responds with an error (like wrong password), this code runs ---
-            // It shows the specific error message from the server.
             toast.error(error.response?.data?.message || 'Failed to change password.');
         }
     };
 
-    // ... (JSX rendering code remains the same)
     if (loading) return <LoadingSpinner />;
 
     return (
         <>
             <Toaster position="top-center" reverseOrder={false} />
             <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
-                {/* Profile Details and Change Password Form */}
                 <h1 className="text-3xl font-bold text-gray-800">My Profile</h1>
                 
                 {user && (
