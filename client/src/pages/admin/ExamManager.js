@@ -32,6 +32,7 @@ function ExamManager() {
         const action = isPublished ? 'unpublish' : 'publish';
         try {
             await axios.patch(`${API_URL}/exams/${examId}/${action}`);
+            toast.success(`Exam has been ${action}ed!`);
             fetchExams();
         } catch (err) {
             toast.error(`Failed to ${action} exam.`);
